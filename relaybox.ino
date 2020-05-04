@@ -34,6 +34,11 @@ void loop() {
       digitalWrite(conPins[1],LOW);
       digitalWrite(conPins[1],HIGH);
     }
+    else if (serialIn == "L1C" or serialIn == "H1C"){
+      Serial.println("CH1 OFF");
+      digitalWrite(conPins[0],LOW);
+      digitalWrite(conPins[1],LOW);
+    }
     else if(serialIn == "L2"){
       Serial.println("Low Side CH2");
       digitalWrite(conPins[2],LOW);
@@ -45,6 +50,11 @@ void loop() {
       digitalWrite(conPins[2],LOW);
       digitalWrite(conPins[3],LOW);
       digitalWrite(conPins[3],HIGH);
+    }
+        else if (serialIn == "L2C" or serialIn == "H2C"){
+      Serial.println("CH2 OFF");
+      digitalWrite(conPins[2],LOW);
+      digitalWrite(conPins[3],LOW);
     }
     else if(serialIn == "L3"){
       Serial.println("Low Side CH3");
@@ -58,6 +68,11 @@ void loop() {
       digitalWrite(conPins[5],LOW);
       digitalWrite(conPins[5],HIGH);
     }
+    else if (serialIn == "L3C" or serialIn == "H3C"){
+      Serial.println("CH3 OFF");
+      digitalWrite(conPins[4],LOW);
+      digitalWrite(conPins[5],LOW);
+    }
     else if(serialIn == "L4"){
       Serial.println("Low Side CH4");
       digitalWrite(conPins[6],LOW);
@@ -70,6 +85,11 @@ void loop() {
       digitalWrite(conPins[7],LOW);
       digitalWrite(conPins[7],HIGH);
     }
+    else if (serialIn == "L4C" or serialIn == "H4C"){
+      Serial.println("CH4 OFF");
+      digitalWrite(conPins[6],LOW);
+      digitalWrite(conPins[7],LOW);
+    }
     else if(serialIn == "L5"){
       Serial.println("Low Side CH5");
       digitalWrite(conPins[8],LOW);
@@ -81,6 +101,11 @@ void loop() {
       digitalWrite(conPins[8],LOW);
       digitalWrite(conPins[9],LOW);
       digitalWrite(conPins[9],HIGH);
+    }
+    else if (serialIn == "L5C" or serialIn == "H5C"){
+      Serial.println("CH5 OFF");
+      digitalWrite(conPins[8],LOW);
+      digitalWrite(conPins[9],LOW);
     }
     else if(serialIn == "ALLO"){
       Serial.println("All Low Side ON");

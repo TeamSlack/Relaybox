@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ArdPort = New System.IO.Ports.SerialPort(Me.components)
         Me.ManCtrl = New System.Windows.Forms.GroupBox()
         Me.GroupBox14 = New System.Windows.Forms.GroupBox()
@@ -73,13 +74,23 @@ Partial Class Form1
         Me.SerialPortsBox = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox17 = New System.Windows.Forms.GroupBox()
-        Me.SerialDatBox = New System.Windows.Forms.RichTextBox()
         Me.ArdTest = New System.Windows.Forms.Button()
         Me.ArdCon = New System.Windows.Forms.Button()
+        Me.SerialDatBox = New System.Windows.Forms.RichTextBox()
         Me.SysTicks = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox18 = New System.Windows.Forms.GroupBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.SysStat = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.FileDiag = New System.Windows.Forms.OpenFileDialog()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Symbox = New System.Windows.Forms.RichTextBox()
+        Me.ClearSeq = New System.Windows.Forms.Button()
+        Me.StrSeq = New System.Windows.Forms.Button()
+        Me.SeqBox = New System.Windows.Forms.RichTextBox()
+        Me.LoadSeq = New System.Windows.Forms.Button()
+        Me.FOpen = New System.Windows.Forms.Button()
+        Me.GroupBox19 = New System.Windows.Forms.GroupBox()
+        Me.FText = New System.Windows.Forms.TextBox()
         Me.ManCtrl.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
@@ -99,6 +110,8 @@ Partial Class Form1
         Me.GroupBox17.SuspendLayout()
         Me.GroupBox18.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox19.SuspendLayout()
         Me.SuspendLayout()
         '
         'ArdPort
@@ -647,16 +660,9 @@ Partial Class Form1
         Me.GroupBox17.TabStop = False
         Me.GroupBox17.Text = "Setup"
         '
-        'SerialDatBox
-        '
-        Me.SerialDatBox.Location = New System.Drawing.Point(6, 15)
-        Me.SerialDatBox.Name = "SerialDatBox"
-        Me.SerialDatBox.Size = New System.Drawing.Size(309, 234)
-        Me.SerialDatBox.TabIndex = 5
-        Me.SerialDatBox.Text = ""
-        '
         'ArdTest
         '
+        Me.ArdTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ArdTest.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ArdTest.Location = New System.Drawing.Point(237, 13)
         Me.ArdTest.Name = "ArdTest"
@@ -667,12 +673,21 @@ Partial Class Form1
         '
         'ArdCon
         '
+        Me.ArdCon.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ArdCon.Location = New System.Drawing.Point(158, 13)
         Me.ArdCon.Name = "ArdCon"
         Me.ArdCon.Size = New System.Drawing.Size(73, 33)
         Me.ArdCon.TabIndex = 3
         Me.ArdCon.Text = "Connect!"
         Me.ArdCon.UseVisualStyleBackColor = True
+        '
+        'SerialDatBox
+        '
+        Me.SerialDatBox.Location = New System.Drawing.Point(6, 15)
+        Me.SerialDatBox.Name = "SerialDatBox"
+        Me.SerialDatBox.Size = New System.Drawing.Size(309, 234)
+        Me.SerialDatBox.TabIndex = 5
+        Me.SerialDatBox.Text = ""
         '
         'SysTicks
         '
@@ -692,7 +707,7 @@ Partial Class Form1
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SysStat})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 314)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(684, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(851, 22)
         Me.StatusStrip1.TabIndex = 4
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -702,17 +717,111 @@ Partial Class Form1
         Me.SysStat.Size = New System.Drawing.Size(120, 17)
         Me.SysStat.Text = "ToolStripStatusLabel1"
         '
+        'FileDiag
+        '
+        Me.FileDiag.FileName = "OpenFileDialog1"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Symbox)
+        Me.GroupBox1.Controls.Add(Me.ClearSeq)
+        Me.GroupBox1.Controls.Add(Me.StrSeq)
+        Me.GroupBox1.Controls.Add(Me.SeqBox)
+        Me.GroupBox1.Controls.Add(Me.LoadSeq)
+        Me.GroupBox1.Controls.Add(Me.FOpen)
+        Me.GroupBox1.Controls.Add(Me.GroupBox19)
+        Me.GroupBox1.Location = New System.Drawing.Point(528, 6)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(316, 307)
+        Me.GroupBox1.TabIndex = 7
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Sequence Loader"
+        '
+        'Symbox
+        '
+        Me.Symbox.Location = New System.Drawing.Point(7, 60)
+        Me.Symbox.Name = "Symbox"
+        Me.Symbox.Size = New System.Drawing.Size(27, 158)
+        Me.Symbox.TabIndex = 7
+        Me.Symbox.Text = ""
+        '
+        'ClearSeq
+        '
+        Me.ClearSeq.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ClearSeq.Location = New System.Drawing.Point(163, 224)
+        Me.ClearSeq.Name = "ClearSeq"
+        Me.ClearSeq.Size = New System.Drawing.Size(148, 30)
+        Me.ClearSeq.TabIndex = 6
+        Me.ClearSeq.Text = "Clear Sequence"
+        Me.ClearSeq.UseVisualStyleBackColor = True
+        '
+        'StrSeq
+        '
+        Me.StrSeq.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.StrSeq.Location = New System.Drawing.Point(7, 224)
+        Me.StrSeq.Name = "StrSeq"
+        Me.StrSeq.Size = New System.Drawing.Size(147, 30)
+        Me.StrSeq.TabIndex = 5
+        Me.StrSeq.Text = "Start sequence"
+        Me.StrSeq.UseVisualStyleBackColor = True
+        '
+        'SeqBox
+        '
+        Me.SeqBox.Location = New System.Drawing.Point(40, 60)
+        Me.SeqBox.Name = "SeqBox"
+        Me.SeqBox.Size = New System.Drawing.Size(271, 158)
+        Me.SeqBox.TabIndex = 3
+        Me.SeqBox.Text = ""
+        '
+        'LoadSeq
+        '
+        Me.LoadSeq.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.LoadSeq.Location = New System.Drawing.Point(248, 20)
+        Me.LoadSeq.Name = "LoadSeq"
+        Me.LoadSeq.Size = New System.Drawing.Size(62, 30)
+        Me.LoadSeq.TabIndex = 2
+        Me.LoadSeq.Text = "Load Seq"
+        Me.LoadSeq.UseVisualStyleBackColor = True
+        '
+        'FOpen
+        '
+        Me.FOpen.BackColor = System.Drawing.SystemColors.Control
+        Me.FOpen.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.FOpen.Image = CType(resources.GetObject("FOpen.Image"), System.Drawing.Image)
+        Me.FOpen.Location = New System.Drawing.Point(210, 20)
+        Me.FOpen.Name = "FOpen"
+        Me.FOpen.Size = New System.Drawing.Size(30, 30)
+        Me.FOpen.TabIndex = 1
+        Me.FOpen.UseVisualStyleBackColor = False
+        '
+        'GroupBox19
+        '
+        Me.GroupBox19.Controls.Add(Me.FText)
+        Me.GroupBox19.Location = New System.Drawing.Point(7, 11)
+        Me.GroupBox19.Name = "GroupBox19"
+        Me.GroupBox19.Size = New System.Drawing.Size(237, 43)
+        Me.GroupBox19.TabIndex = 4
+        Me.GroupBox19.TabStop = False
+        '
+        'FText
+        '
+        Me.FText.Location = New System.Drawing.Point(6, 14)
+        Me.FText.Name = "FText"
+        Me.FText.Size = New System.Drawing.Size(193, 20)
+        Me.FText.TabIndex = 0
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 336)
+        Me.ClientSize = New System.Drawing.Size(851, 336)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox18)
         Me.Controls.Add(Me.GroupBox17)
         Me.Controls.Add(Me.ManCtrl)
         Me.Name = "Form1"
-        Me.Text = "Relay Control Sys"
+        Me.Text = " "
         Me.ManCtrl.ResumeLayout(False)
         Me.GroupBox14.ResumeLayout(False)
         Me.GroupBox14.PerformLayout()
@@ -749,6 +858,9 @@ Partial Class Form1
         Me.GroupBox18.ResumeLayout(False)
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox19.ResumeLayout(False)
+        Me.GroupBox19.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -811,4 +923,14 @@ Partial Class Form1
     Friend WithEvents GroupBox18 As GroupBox
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents SysStat As ToolStripStatusLabel
+    Friend WithEvents FileDiag As OpenFileDialog
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents FOpen As Button
+    Friend WithEvents LoadSeq As Button
+    Friend WithEvents SeqBox As RichTextBox
+    Friend WithEvents GroupBox19 As GroupBox
+    Friend WithEvents FText As TextBox
+    Friend WithEvents ClearSeq As Button
+    Friend WithEvents StrSeq As Button
+    Friend WithEvents Symbox As RichTextBox
 End Class
