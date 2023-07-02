@@ -13,4 +13,7 @@ New
 		○ Automate more and more portion of repetitive tests
     Q current measurements - eg, want to measure 100x, want to measure overnight etc
 
-![image](https://github.com/TeamSlack/Relaybox/assets/59159607/b4923bb9-0364-4bf1-95b1-2e7f2b6968b2)
+![image](https://github.com/TeamSlack/Relaybox/blob/1e74484e2be97cf95c3558820d5d0cdcbf312b78/GUI.png)
+
+The test interface consists of relays configured in both Low Side and High Side switches which can be selected on the GUI.
+The GUI also allows for loading of test sequences to automatically run tests.
